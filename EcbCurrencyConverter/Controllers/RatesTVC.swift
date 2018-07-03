@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RatesTVC: UITableViewController, ConvertViewDelegate {
+class RatesTVC: UITableViewController {
     
     var allRates: RatesModel?
     let cellId = "cellRate"
@@ -23,16 +23,9 @@ class RatesTVC: UITableViewController, ConvertViewDelegate {
         fetchRatesData(Routes.latestDetailedRatesUri)
         
         navigationItem.title = "ECB Rates"
+        navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.prefersLargeTitles = true
     }
-
-
-    func setRateValue(_ inputValue: String, inputSymbol: String) {
-        print("Amount: \(inputValue)")
-        let convertUri = "\(Routes.convertRatesUri)&from=\(inputSymbol)&amount=\(inputValue)&date=2018-06-27"
-        fetchRatesData(convertUri)
-    }
-    
     
     func fetchRatesData(_ url: String) {
         ApiService.shared.fetchApiData(urlString: url) { (rates: RatesModel) in
@@ -68,7 +61,6 @@ class RatesTVC: UITableViewController, ConvertViewDelegate {
             if let vc = segue.destination as? ConvertRate {
                 let indexpath = tableView.indexPathForSelectedRow
                 vc.rate = allRates?.rates[(indexpath?.row)!]
-                vc.delegate = self
             }
         }
     }

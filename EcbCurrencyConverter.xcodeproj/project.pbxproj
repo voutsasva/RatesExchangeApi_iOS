@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0062ACAF20EA9C92008CBC59 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062ACAE20EA9C92008CBC59 /* MainVC.swift */; };
+		0062ACB120EAA2FC008CBC59 /* CurrencyHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062ACB020EAA2FC008CBC59 /* CurrencyHistory.swift */; };
+		0062ACB320EAA697008CBC59 /* CurrencyHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062ACB220EAA697008CBC59 /* CurrencyHistoryCell.swift */; };
 		0072C5F220E298FE0099DF9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0072C5F120E298FE0099DF9A /* AppDelegate.swift */; };
 		0072C5F720E298FE0099DF9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0072C5F520E298FE0099DF9A /* Main.storyboard */; };
 		0072C5F920E299000099DF9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0072C5F820E299000099DF9A /* Assets.xcassets */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0062ACAE20EA9C92008CBC59 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		0062ACB020EAA2FC008CBC59 /* CurrencyHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyHistory.swift; sourceTree = "<group>"; };
+		0062ACB220EAA697008CBC59 /* CurrencyHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyHistoryCell.swift; sourceTree = "<group>"; };
 		0072C5EE20E298FD0099DF9A /* EcbCurrencyConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EcbCurrencyConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0072C5F120E298FE0099DF9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0072C5F620E298FE0099DF9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -99,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				0072C60820E29E380099DF9A /* RatesModel.swift */,
+				0062ACB020EAA2FC008CBC59 /* CurrencyHistory.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -107,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				00E312F620E3FE3700E20CC8 /* RateCell.swift */,
+				0062ACB220EAA697008CBC59 /* CurrencyHistoryCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -116,6 +124,7 @@
 			children = (
 				0072C60C20E2A5770099DF9A /* RatesTVC.swift */,
 				00C0DC8D20E54F1C0046FCCA /* ConvertRate.swift */,
+				0062ACAE20EA9C92008CBC59 /* MainVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -200,9 +209,12 @@
 			files = (
 				0072C60620E29C230099DF9A /* Settings.swift in Sources */,
 				00C0DC8E20E54F1C0046FCCA /* ConvertRate.swift in Sources */,
+				0062ACB120EAA2FC008CBC59 /* CurrencyHistory.swift in Sources */,
 				0072C60B20E29F7F0099DF9A /* ApiHandler.swift in Sources */,
 				0072C60D20E2A5770099DF9A /* RatesTVC.swift in Sources */,
+				0062ACB320EAA697008CBC59 /* CurrencyHistoryCell.swift in Sources */,
 				0072C5F220E298FE0099DF9A /* AppDelegate.swift in Sources */,
+				0062ACAF20EA9C92008CBC59 /* MainVC.swift in Sources */,
 				0072C60920E29E380099DF9A /* RatesModel.swift in Sources */,
 				00E312F720E3FE3700E20CC8 /* RateCell.swift in Sources */,
 			);
