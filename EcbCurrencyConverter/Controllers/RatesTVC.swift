@@ -58,7 +58,7 @@ class RatesTVC: UITableViewController {
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showConvert" {
-            if let vc = segue.destination as? ConvertRate {
+            if let vc = segue.destination as? CurrencyHistoryVC {
                 let indexpath = tableView.indexPathForSelectedRow
                 vc.rate = allRates?.rates[(indexpath?.row)!]
             }

@@ -19,8 +19,9 @@ struct Routes {
     private static let s = GlobalSettings.shared
     
     static let apiBaseUrl = "https://api.ratesexchange.eu"
-    static let latestDetailedRatesUri = "\(apiBaseUrl)/client/latestdetails?apiKey=\(s.ratesExchangeApiKey)"
-    static let currenciesUri = "\(apiBaseUrl)/client/currencies?apiKey=\(s.ratesExchangeApiKey)"
-    static let convertRatesUri = "\(apiBaseUrl)/client/convert?apiKey=\(s.ratesExchangeApiKey)"
-    static let currencyHistoryRatesUri = "\(apiBaseUrl)/client/historydates?apiKey=\(s.ratesExchangeApiKey)"
+    static let apiKeyParam = "?apiKey=\(s.ratesExchangeApiKey)"
+    static let latestDetailedRatesUri = "\(apiBaseUrl)/client/latestdetails\(apiKeyParam)"
+    static let currenciesUri = "\(apiBaseUrl)/client/currencies\(apiKeyParam)"
+    static let convertRatesUri = "\(apiBaseUrl)/client/convert\(apiKeyParam)"
+    static let currencyHistoryRatesUri = "\(apiBaseUrl)/client/historydates\(apiKeyParam)"
 }

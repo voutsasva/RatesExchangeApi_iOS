@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ConvertRate: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CurrencyHistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
     //MARK: - Declarations
