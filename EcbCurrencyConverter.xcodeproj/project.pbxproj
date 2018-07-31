@@ -22,6 +22,9 @@
 		0073FB2620F77C62008A04BF /* UIActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0073FB2520F77C62008A04BF /* UIActivityIndicatorView.swift */; };
 		0073FB2820F7C2E1008A04BF /* HistoryMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0073FB2720F7C2E1008A04BF /* HistoryMainVC.swift */; };
 		00935B05211035660039433C /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00935B04211035660039433C /* Result.swift */; };
+		00935B07211076E60039433C /* CurrenciesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00935B06211076E60039433C /* CurrenciesVC.swift */; };
+		00935B09211077790039433C /* CurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00935B08211077790039433C /* CurrencyCell.swift */; };
+		00935B0B211078CF0039433C /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00935B0A211078CF0039433C /* Currency.swift */; };
 		00C0DC8E20E54F1C0046FCCA /* CurrencyHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C0DC8D20E54F1C0046FCCA /* CurrencyHistoryVC.swift */; };
 		00E312F720E3FE3700E20CC8 /* RateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E312F620E3FE3700E20CC8 /* RateCell.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +47,9 @@
 		0073FB2520F77C62008A04BF /* UIActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivityIndicatorView.swift; sourceTree = "<group>"; };
 		0073FB2720F7C2E1008A04BF /* HistoryMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryMainVC.swift; sourceTree = "<group>"; };
 		00935B04211035660039433C /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		00935B06211076E60039433C /* CurrenciesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesVC.swift; sourceTree = "<group>"; };
+		00935B08211077790039433C /* CurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCell.swift; sourceTree = "<group>"; };
+		00935B0A211078CF0039433C /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		00C0DC8D20E54F1C0046FCCA /* CurrencyHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyHistoryVC.swift; sourceTree = "<group>"; };
 		00E312F620E3FE3700E20CC8 /* RateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,6 +122,7 @@
 				0072C60820E29E380099DF9A /* RatesModel.swift */,
 				0062ACB020EAA2FC008CBC59 /* CurrencyHistory.swift */,
 				00935B04211035660039433C /* Result.swift */,
+				00935B0A211078CF0039433C /* Currency.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -125,6 +132,7 @@
 			children = (
 				00E312F620E3FE3700E20CC8 /* RateCell.swift */,
 				0062ACB220EAA697008CBC59 /* CurrencyHistoryCell.swift */,
+				00935B08211077790039433C /* CurrencyCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -136,6 +144,7 @@
 				00C0DC8D20E54F1C0046FCCA /* CurrencyHistoryVC.swift */,
 				0062ACAE20EA9C92008CBC59 /* MainVC.swift */,
 				0073FB2720F7C2E1008A04BF /* HistoryMainVC.swift */,
+				00935B06211076E60039433C /* CurrenciesVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -227,9 +236,12 @@
 				0072C60D20E2A5770099DF9A /* RatesTVC.swift in Sources */,
 				0073FB2820F7C2E1008A04BF /* HistoryMainVC.swift in Sources */,
 				0062ACB320EAA697008CBC59 /* CurrencyHistoryCell.swift in Sources */,
+				00935B09211077790039433C /* CurrencyCell.swift in Sources */,
 				0073FB2420F77C16008A04BF /* CommonMethods.swift in Sources */,
 				0073FB2620F77C62008A04BF /* UIActivityIndicatorView.swift in Sources */,
+				00935B07211076E60039433C /* CurrenciesVC.swift in Sources */,
 				0072C5F220E298FE0099DF9A /* AppDelegate.swift in Sources */,
+				00935B0B211078CF0039433C /* Currency.swift in Sources */,
 				0062ACAF20EA9C92008CBC59 /* MainVC.swift in Sources */,
 				0072C60920E29E380099DF9A /* RatesModel.swift in Sources */,
 				00E312F720E3FE3700E20CC8 /* RateCell.swift in Sources */,

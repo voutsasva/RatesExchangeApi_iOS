@@ -21,8 +21,8 @@ class MainVC: UIViewController {
     //MARK: - Main methods
     // ------------------
     func checkIfApiIsOnLine() {
-        statusIndicator.startAnimating()
         imgStatus.image = nil
+        statusIndicator.startAnimating()
         let url = Routes.apiCheckOnLine
         ApiService.shared.fetchApiData(urlString: url) { (response: ResultModel) in
             print("API is online: \(response.result)")

@@ -1,22 +1,17 @@
 //
-//  RateCell.swift
+//  CurrencyCell.swift
 //  EcbCurrencyConverter
 //
-//  Created by Vassilis Voutsas on 27/06/2018.
+//  Created by Vassilis Voutsas on 31/07/2018.
 //  Copyright © 2018 Vassilis Voutsas. All rights reserved.
 //
 
 import UIKit
 
-class RateCell: UITableViewCell {
+class CurrencyCell: UITableViewCell {
 
-    
     @IBOutlet weak var imgCurrency: UIImageView!
     @IBOutlet weak var lblCurrencyDescr: UILabel!
-    @IBOutlet weak var lblAmount: UILabel!
-    @IBOutlet weak var lblCurrencyIso: UILabel!
-    
-    
     
     
     override func awakeFromNib() {

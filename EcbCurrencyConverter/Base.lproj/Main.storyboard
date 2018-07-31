@@ -314,9 +314,12 @@
                                 <rect key="frame" x="87.5" y="461" width="200" height="35"/>
                                 <color key="backgroundColor" red="0.024394605310000001" green="0.32284840939999998" blue="0.59277135130000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Supported currencies">
+                                <state key="normal" title="Supported Currencies">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="Yok-7u-fta" kind="show" id="TF8-Dj-FIP"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ECB logo" translatesAutoresizingMaskIntoConstraints="NO" id="eUx-Ar-cEn">
                                 <rect key="frame" x="60" y="94" width="255" height="164"/>
@@ -383,7 +386,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vld-WH-lxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="172" y="838.83058470764627"/>
+            <point key="canvasLocation" x="183" y="817"/>
         </scene>
         <!--History MainVC-->
         <scene sceneID="uLk-Tz-WFP">
@@ -434,6 +437,76 @@
             </objects>
             <point key="canvasLocation" x="976.79999999999995" y="838.83058470764627"/>
         </scene>
+        <!--CurrenciesVC-->
+        <scene sceneID="qfG-ri-0ho">
+            <objects>
+                <viewController id="Yok-7u-fta" customClass="CurrenciesVC" customModule="EcbCurrencyConverter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e0d-aG-Qbe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TPn-hv-haR">
+                                <rect key="frame" x="16" y="64" width="343" height="583"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrencyCell" id="byY-2F-B4g" customClass="CurrencyCell" customModule="EcbCurrencyConverter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="byY-2F-B4g" id="TL8-aq-rXs">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zGc-q7-wSb">
+                                                    <rect key="frame" x="16" y="1" width="45" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="45" id="BdY-xL-12P"/>
+                                                        <constraint firstAttribute="height" constant="40" id="ft8-Hh-88W"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Descr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFC-s4-GGt">
+                                                    <rect key="frame" x="69" y="13" width="259" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="fFC-s4-GGt" firstAttribute="centerY" secondItem="zGc-q7-wSb" secondAttribute="centerY" id="7re-jz-24d"/>
+                                                <constraint firstItem="fFC-s4-GGt" firstAttribute="trailing" secondItem="TL8-aq-rXs" secondAttribute="trailingMargin" id="EG7-nm-E4o"/>
+                                                <constraint firstItem="fFC-s4-GGt" firstAttribute="leading" secondItem="zGc-q7-wSb" secondAttribute="trailing" constant="8" id="HCh-1f-762"/>
+                                                <constraint firstItem="zGc-q7-wSb" firstAttribute="centerY" secondItem="TL8-aq-rXs" secondAttribute="centerY" id="P7R-yx-OHF"/>
+                                                <constraint firstItem="zGc-q7-wSb" firstAttribute="leading" secondItem="TL8-aq-rXs" secondAttribute="leading" constant="16" id="ysx-Kw-O9O"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imgCurrency" destination="zGc-q7-wSb" id="S15-B6-SfN"/>
+                                            <outlet property="lblCurrencyDescr" destination="fFC-s4-GGt" id="Cad-n5-UhY"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Yok-7u-fta" id="DT2-6H-6XZ"/>
+                                    <outlet property="delegate" destination="Yok-7u-fta" id="baN-tp-vE5"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="TPn-hv-haR" firstAttribute="top" secondItem="b4o-g8-dyQ" secondAttribute="top" id="9YD-HP-2wA"/>
+                            <constraint firstItem="b4o-g8-dyQ" firstAttribute="bottom" secondItem="TPn-hv-haR" secondAttribute="bottom" constant="20" id="EC2-Ab-xzs"/>
+                            <constraint firstItem="TPn-hv-haR" firstAttribute="leading" secondItem="b4o-g8-dyQ" secondAttribute="leading" constant="16" id="rrq-VC-wzn"/>
+                            <constraint firstItem="b4o-g8-dyQ" firstAttribute="trailing" secondItem="TPn-hv-haR" secondAttribute="trailing" constant="16" id="xmX-5n-zYt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="b4o-g8-dyQ"/>
+                    </view>
+                    <connections>
+                        <outlet property="tblCurrencies" destination="TPn-hv-haR" id="axA-LL-72y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tEz-LJ-acj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="965.60000000000002" y="1590.8545727136434"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="qi2-vp-X2S">
             <objects>
@@ -450,7 +523,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B4y-wC-7qd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-767" y="839"/>
+            <point key="canvasLocation" x="-785" y="816"/>
         </scene>
     </scenes>
     <resources>
