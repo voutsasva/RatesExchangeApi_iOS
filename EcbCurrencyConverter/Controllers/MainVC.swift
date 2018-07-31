@@ -10,6 +10,31 @@ import UIKit
 
 class MainVC: UIViewController {
 
+    //MARK: - IBOutlets
+    //-----------------
+    @IBOutlet weak var imgStatus: UIImageView!
+    @IBOutlet weak var statusIndicator: UIActivityIndicatorView!
+    
+    
+    
+    
+    //MARK: - Main methods
+    // ------------------
+    func checkIfApiIsOnLine() {
+        statusIndicator.startAnimating()
+        imgStatus.image = nil
+        let url = Routes.apiCheckOnLine
+        ApiService.shared.fetchApiData(urlString: url) { (response: ResultModel) in
+            print("API is online: \(response.result)")
+            self.imgStatus.image = response.result ? #imageLiteral(resourceName: "online") : #imageLiteral(resourceName: "offline")
+            self.statusIndicator.stopAnimating()
+        }
+    }
+    
+    
+    
+    //MARK: - View Controller Lifecycle
+    // ---------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -17,6 +42,7 @@ class MainVC: UIViewController {
         navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.prefersLargeTitles = false
 
+        checkIfApiIsOnLine()
     }
 
 

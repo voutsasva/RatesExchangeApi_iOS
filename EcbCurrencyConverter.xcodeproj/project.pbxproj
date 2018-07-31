@@ -18,6 +18,10 @@
 		0072C60920E29E380099DF9A /* RatesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0072C60820E29E380099DF9A /* RatesModel.swift */; };
 		0072C60B20E29F7F0099DF9A /* ApiHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0072C60A20E29F7F0099DF9A /* ApiHandler.swift */; };
 		0072C60D20E2A5770099DF9A /* RatesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0072C60C20E2A5770099DF9A /* RatesTVC.swift */; };
+		0073FB2420F77C16008A04BF /* CommonMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0073FB2320F77C16008A04BF /* CommonMethods.swift */; };
+		0073FB2620F77C62008A04BF /* UIActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0073FB2520F77C62008A04BF /* UIActivityIndicatorView.swift */; };
+		0073FB2820F7C2E1008A04BF /* HistoryMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0073FB2720F7C2E1008A04BF /* HistoryMainVC.swift */; };
+		00935B05211035660039433C /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00935B04211035660039433C /* Result.swift */; };
 		00C0DC8E20E54F1C0046FCCA /* CurrencyHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C0DC8D20E54F1C0046FCCA /* CurrencyHistoryVC.swift */; };
 		00E312F720E3FE3700E20CC8 /* RateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E312F620E3FE3700E20CC8 /* RateCell.swift */; };
 /* End PBXBuildFile section */
@@ -36,6 +40,10 @@
 		0072C60820E29E380099DF9A /* RatesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesModel.swift; sourceTree = "<group>"; };
 		0072C60A20E29F7F0099DF9A /* ApiHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiHandler.swift; sourceTree = "<group>"; };
 		0072C60C20E2A5770099DF9A /* RatesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesTVC.swift; sourceTree = "<group>"; };
+		0073FB2320F77C16008A04BF /* CommonMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonMethods.swift; sourceTree = "<group>"; };
+		0073FB2520F77C62008A04BF /* UIActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivityIndicatorView.swift; sourceTree = "<group>"; };
+		0073FB2720F7C2E1008A04BF /* HistoryMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryMainVC.swift; sourceTree = "<group>"; };
+		00935B04211035660039433C /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		00C0DC8D20E54F1C0046FCCA /* CurrencyHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyHistoryVC.swift; sourceTree = "<group>"; };
 		00E312F620E3FE3700E20CC8 /* RateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				0072C60520E29C230099DF9A /* Settings.swift */,
+				0073FB2320F77C16008A04BF /* CommonMethods.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -106,6 +115,7 @@
 			children = (
 				0072C60820E29E380099DF9A /* RatesModel.swift */,
 				0062ACB020EAA2FC008CBC59 /* CurrencyHistory.swift */,
+				00935B04211035660039433C /* Result.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -125,6 +135,7 @@
 				0072C60C20E2A5770099DF9A /* RatesTVC.swift */,
 				00C0DC8D20E54F1C0046FCCA /* CurrencyHistoryVC.swift */,
 				0062ACAE20EA9C92008CBC59 /* MainVC.swift */,
+				0073FB2720F7C2E1008A04BF /* HistoryMainVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -132,6 +143,7 @@
 		00E312F820E4009000E20CC8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				0073FB2520F77C62008A04BF /* UIActivityIndicatorView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -211,8 +223,12 @@
 				00C0DC8E20E54F1C0046FCCA /* CurrencyHistoryVC.swift in Sources */,
 				0062ACB120EAA2FC008CBC59 /* CurrencyHistory.swift in Sources */,
 				0072C60B20E29F7F0099DF9A /* ApiHandler.swift in Sources */,
+				00935B05211035660039433C /* Result.swift in Sources */,
 				0072C60D20E2A5770099DF9A /* RatesTVC.swift in Sources */,
+				0073FB2820F7C2E1008A04BF /* HistoryMainVC.swift in Sources */,
 				0062ACB320EAA697008CBC59 /* CurrencyHistoryCell.swift in Sources */,
+				0073FB2420F77C16008A04BF /* CommonMethods.swift in Sources */,
+				0073FB2620F77C62008A04BF /* UIActivityIndicatorView.swift in Sources */,
 				0072C5F220E298FE0099DF9A /* AppDelegate.swift in Sources */,
 				0062ACAF20EA9C92008CBC59 /* MainVC.swift in Sources */,
 				0072C60920E29E380099DF9A /* RatesModel.swift in Sources */,

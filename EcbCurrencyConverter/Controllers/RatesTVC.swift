@@ -10,33 +10,50 @@ import UIKit
 
 class RatesTVC: UITableViewController {
     
-    var allRates: RatesModel?
-    let cellId = "cellRate"
+    //MARK: - Properties
+    //------------------
+    fileprivate let refreshCtrl = UIRefreshControl()
+    fileprivate var allRates: RatesModel?
+    fileprivate let cellId = "cellRate"
     
     
+    //MARK: - IBOutlets
+    //-----------------
     @IBOutlet weak var lblCurrenciesDate: UILabel!
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        fetchRatesData(Routes.latestDetailedRatesUri)
-        
-        navigationItem.title = "ECB Rates"
-        navigationItem.largeTitleDisplayMode = .always
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
     
-    func fetchRatesData(_ url: String) {
+    
+    //MARK: - Main methods
+    //--------------------
+    @objc func fetchRatesData() {
+        let spinner = showLoader(view: self.view)
+        let url = Routes.latestDetailedRatesUri
         ApiService.shared.fetchApiData(urlString: url) { (rates: RatesModel) in
             self.allRates = rates
             self.tableView.reloadData()
             self.lblCurrenciesDate.text = "Last update date: \(self.allRates!.date)"
+            self.refreshCtrl.endRefreshing()
+            print("Last update date: \(self.allRates!.date)")
+            spinner.dismissLoader()
         }
     }
     
+    func setupRefreshControl() {
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshCtrl
+        } else {
+            tableView.addSubview(refreshCtrl)
+        }
+        refreshCtrl.addTarget(self, action: #selector(fetchRatesData), for: .valueChanged)
+    }
+    
+    
+    
+    
 
-    // MARK: - Table view data source
+    //MARK: - Table View delegate methods
+    //-----------------------------------
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allRates?.rates.count ?? 0
     }
@@ -55,7 +72,9 @@ class RatesTVC: UITableViewController {
  
 
     
-    // MARK: - Navigation
+    
+    //MARK: - Segues
+    //--------------
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showConvert" {
             if let vc = segue.destination as? CurrencyHistoryVC {
@@ -64,6 +83,20 @@ class RatesTVC: UITableViewController {
             }
         }
     }
+
     
+    
+    //MARK: - View Controller Lifecycle
+    //---------------------------------
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupRefreshControl()
+        fetchRatesData()
+        
+        navigationItem.title = "ECB Rates"
+        navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
 
 }
