@@ -12,8 +12,8 @@ class CurrenciesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     //MARK: - Declarations
     // --------------------
-    let cellId = "CurrencyCell"
-    var currenciesData: [Currency]?
+    private let cellId = "CurrencyCell"
+    private var currenciesData: [Currency]?
     
     
 

@@ -9,15 +9,15 @@
 import UIKit
 
 
-class CurrencyHistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CurrencyDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
     //MARK: - Declarations
     // --------------------
     var rate: Rate?
-    var currencyData: CurrencyHistory?
-    let cellId = "CurrencyHistoryCell"
-    
+    private var currencyData: CurrencyHistory?
+    private let cellId = "CurrencyHistoryCell"
+    private let dataFromDate = "2000-01-01"
     
     
     //MARK: - IBOutlets
@@ -35,7 +35,7 @@ class CurrencyHistoryVC: UIViewController, UITableViewDelegate, UITableViewDataS
     //MARK: - Main methods
     // ------------------
     func getCurrencyHistoryData(symbol currency: String) {
-        let uri = "\(Routes.currencyHistoryRatesUri)&currency=\(currency)&from_date=2000-01-01"
+        let uri = "\(Routes.currencyHistoryRatesUri)&currency=\(currency)&from_date=\(dataFromDate)"
         fetchHistoryCurrencyData(uri)
     }
     

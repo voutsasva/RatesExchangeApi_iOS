@@ -12,9 +12,9 @@ class RatesTVC: UITableViewController {
     
     //MARK: - Properties
     //------------------
-    fileprivate let refreshCtrl = UIRefreshControl()
-    fileprivate var allRates: RatesModel?
-    fileprivate let cellId = "cellRate"
+    private let refreshCtrl = UIRefreshControl()
+    private var allRates: RatesModel?
+    private let cellId = "cellRate"
     
     
     //MARK: - IBOutlets
@@ -77,7 +77,7 @@ class RatesTVC: UITableViewController {
     //--------------
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showConvert" {
-            if let vc = segue.destination as? CurrencyHistoryVC {
+            if let vc = segue.destination as? CurrencyDetailsVC {
                 let indexpath = tableView.indexPathForSelectedRow
                 vc.rate = allRates?.rates[(indexpath?.row)!]
             }
