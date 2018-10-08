@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		004E7360212204C000CC65F0 /* RatesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004E735F212204C000CC65F0 /* RatesModel.swift */; };
 		0062ACAF20EA9C92008CBC59 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062ACAE20EA9C92008CBC59 /* MainVC.swift */; };
 		0062ACB120EAA2FC008CBC59 /* CurrencyHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062ACB020EAA2FC008CBC59 /* CurrencyHistory.swift */; };
 		0062ACB320EAA697008CBC59 /* CurrencyHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0062ACB220EAA697008CBC59 /* CurrencyHistoryCell.swift */; };
@@ -34,7 +33,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		004E735F212204C000CC65F0 /* RatesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesModel.swift; sourceTree = "<group>"; };
 		0062ACAE20EA9C92008CBC59 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		0062ACB020EAA2FC008CBC59 /* CurrencyHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyHistory.swift; sourceTree = "<group>"; };
 		0062ACB220EAA697008CBC59 /* CurrencyHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyHistoryCell.swift; sourceTree = "<group>"; };
@@ -127,7 +125,6 @@
 		0072C60720E29DE30099DF9A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				004E735F212204C000CC65F0 /* RatesModel.swift */,
 				0072C60820E29E380099DF9A /* RatesDetailModel.swift */,
 				0062ACB020EAA2FC008CBC59 /* CurrencyHistory.swift */,
 				00935B04211035660039433C /* Result.swift */,
@@ -256,7 +253,6 @@
 				00935B07211076E60039433C /* CurrenciesVC.swift in Sources */,
 				0072C5F220E298FE0099DF9A /* AppDelegate.swift in Sources */,
 				00935B0B211078CF0039433C /* Currency.swift in Sources */,
-				004E7360212204C000CC65F0 /* RatesModel.swift in Sources */,
 				0062ACAF20EA9C92008CBC59 /* MainVC.swift in Sources */,
 				0072C60920E29E380099DF9A /* RatesDetailModel.swift in Sources */,
 				00935B0D21109D6E0039433C /* HistoryDetailsVC.swift in Sources */,
