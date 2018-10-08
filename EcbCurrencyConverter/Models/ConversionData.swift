@@ -7,9 +7,10 @@
 //
 
 struct ConversionData {
+    
     var fromCurrency: String?
     var toCurrency: String?
     var convertDate: String?
     var fromAmount: Double?
+    
 }
-

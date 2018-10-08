@@ -14,11 +14,10 @@ func showLoader(view: UIView) -> UIActivityIndicatorView {
     spinner.layer.cornerRadius = 3.0
     spinner.clipsToBounds = true
     spinner.hidesWhenStopped = true
-    spinner.style = UIActivityIndicatorView.Style.white;
+    spinner.style = UIActivityIndicatorView.Style.white
     spinner.center = view.center
     view.addSubview(spinner)
     spinner.startAnimating()
     UIApplication.shared.beginIgnoringInteractionEvents()
-    
     return spinner
 }

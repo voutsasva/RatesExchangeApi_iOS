@@ -13,7 +13,6 @@ class CurrencyCell: UITableViewCell {
     @IBOutlet weak var imgCurrency: UIImageView!
     @IBOutlet weak var lblCurrencyDescr: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

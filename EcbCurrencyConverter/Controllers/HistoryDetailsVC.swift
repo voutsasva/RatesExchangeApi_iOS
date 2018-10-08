@@ -24,8 +24,6 @@ class HistoryDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     @IBOutlet weak var lblCurrency: UILabel!
     @IBOutlet weak var lblCurrencyInfo: UILabel!
     
-    
-    
     // MARK: - Main methods
     // --------------------
     func getData() {
@@ -49,8 +47,6 @@ class HistoryDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         }
     }
     
-    
-    
     // MARK: - Table View delegate methods
     // -----------------------------------
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -58,7 +54,7 @@ class HistoryDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as! RateCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? RateCell else {return UITableViewCell()}
         guard let data = historyRates?.rates else { return cell }
         let rateData = data[indexPath.row]
         cell.lblCurrencyDescr.text = rateData.currency
@@ -67,8 +63,6 @@ class HistoryDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         cell.imgCurrency.image = UIImage(named: "\(rateData.symbol.lowercased())")
         return cell
     }
-    
-    
     
     // MARK: - View Controller Lifecycle
     // ---------------------------------

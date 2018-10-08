@@ -7,7 +7,9 @@
 //
 
 struct ResultModel: Decodable {
+    
     let result: Bool
+    
 }
 
 

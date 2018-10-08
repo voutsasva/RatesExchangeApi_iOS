@@ -9,6 +9,7 @@
 import Foundation
 
 struct ApiService {
+    
     static let shared = ApiService()
     
     func fetchApiData<T: Decodable>(urlString: String, completion: @escaping (T) -> ()) {
@@ -33,5 +34,7 @@ struct ApiService {
             }
             
         }.resume()
+        
     }
+    
 }
