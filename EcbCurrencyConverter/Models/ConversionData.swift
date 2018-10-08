@@ -6,8 +6,7 @@
 //  Copyright © 2018 Vassilis Voutsas. All rights reserved.
 //
 
-struct ConversionData {
-    
+struct ConversionData {    
     var fromCurrency: String?
     var toCurrency: String?
     var convertDate: String?
