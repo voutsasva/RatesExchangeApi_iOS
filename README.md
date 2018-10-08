@@ -1,4 +1,5 @@
 ![Swift](https://img.shields.io/badge/Swift-4.2-brightgreen.svg)
+[![Xcode](https://img.shields.io/badge/Xcode-10.0-brightgreen.svg)](https://developer.apple.com/xcode)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/73d0083700bd4157b2d225d6441598eb)](https://www.codacy.com/app/voutsasva/RatesExchangeApi_iOS?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=voutsasva/RatesExchangeApi_iOS&amp;utm_campaign=Badge_Grade)
 
 # ECB Currency Converter
