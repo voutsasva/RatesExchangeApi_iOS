@@ -82,7 +82,7 @@ class HistoryMainVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         cell.imgCurrency.image = UIImage(named: "\(currency.symbol.lowercased())")
         cell.lblCurrencyDescr.text = "\(currency.description) (\(currency.symbol))"
         if currency.symbol == "EUR" {
-            tableView.selectRow(at: indexPath, animated: true, scrollPosition: UITableViewScrollPosition.middle)
+            tableView.selectRow(at: indexPath, animated: true, scrollPosition: UITableView.ScrollPosition.middle)
         }
         return cell
     }
