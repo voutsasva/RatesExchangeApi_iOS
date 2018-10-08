@@ -61,6 +61,12 @@ class HistoryMainVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         return selectedDate
     }
     
+    private func setupDatePicker() {
+        let calendarDate = Calendar.current.date(byAdding: .day, value: -1, to: Date())
+        datePickerRate.setDate(calendarDate!, animated: true)
+        datePickerRate.maximumDate = calendarDate
+    }
+    
     
     
     //MARK: - Table View delegate methods
@@ -108,6 +114,8 @@ class HistoryMainVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         navigationItem.title = "Historical"
         navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.prefersLargeTitles = false
+        
+        setupDatePicker()
         
         getSupportedCurrencies()
     }

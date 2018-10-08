@@ -14,7 +14,7 @@ class CurrencyDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataS
     
     //MARK: - Declarations
     // --------------------
-    var rate: Rate?
+    var rate: RateDetail?
     private var currencyData: CurrencyHistory?
     private let cellId = "CurrencyHistoryCell"
     private let dataFromDate = "2000-01-01"

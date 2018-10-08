@@ -13,7 +13,7 @@ class RatesTVC: UITableViewController {
     //MARK: - Properties
     //------------------
     private let refreshCtrl = UIRefreshControl()
-    private var allRates: RatesModel?
+    private var allRates: RatesDetailModel?
     private let cellId = "cellRate"
     
     
@@ -29,7 +29,7 @@ class RatesTVC: UITableViewController {
     @objc func fetchRatesData() {
         let spinner = showLoader(view: self.view)
         let url = Routes.latestDetailedRatesUri
-        ApiService.shared.fetchApiData(urlString: url) { (rates: RatesModel) in
+        ApiService.shared.fetchApiData(urlString: url) { (rates: RatesDetailModel) in
             self.allRates = rates
             self.tableView.reloadData()
             self.lblCurrenciesDate.text = "Last update date: \(self.allRates!.date)"

@@ -13,7 +13,7 @@ class HistoryDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     //MARK: - Properties
     //------------------
     private let cellId = "cellRate"
-    private var historyRates: RatesModel?
+    private var historyRates: RatesDetailModel?
     var historyDate: String?
     var currency: Currency?
     
@@ -23,6 +23,7 @@ class HistoryDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     @IBOutlet weak var tblHistoryRates: UITableView!
     @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var lblCurrency: UILabel!
+    @IBOutlet weak var lblCurrencyInfo: UILabel!
     
     
     
@@ -32,6 +33,7 @@ class HistoryDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         guard let currency = currency, let date = historyDate else { return }
         lblDate.text = date
         lblCurrency.text = currency.description
+        lblCurrencyInfo.text = "One '\(currency.symbol)' against other currencies"
         fetchRatesData(createHistoryDataUri(symbol: currency.symbol, date: date))
     }
     
@@ -41,7 +43,7 @@ class HistoryDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
 
     func fetchRatesData(_ url: String) {
         let spinner = showLoader(view: self.view)
-        ApiService.shared.fetchApiData(urlString: url) { (rates: RatesModel) in
+        ApiService.shared.fetchApiData(urlString: url) { (rates: RatesDetailModel) in
             self.historyRates = rates
             self.tblHistoryRates.reloadData()
             spinner.dismissLoader()
