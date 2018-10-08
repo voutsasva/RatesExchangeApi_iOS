@@ -29,6 +29,7 @@
 		00935B0F21196F8A0039433C /* ConverterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00935B0E21196F8A0039433C /* ConverterVC.swift */; };
 		00C0DC8E20E54F1C0046FCCA /* CurrencyDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C0DC8D20E54F1C0046FCCA /* CurrencyDetailsVC.swift */; };
 		00C1C2A3216BCFA000321382 /* ConversionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C1C2A2216BCFA000321382 /* ConversionData.swift */; };
+		00C1C2A5216BF92700321382 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 00C1C2A4216BF92700321382 /* README.md */; };
 		00E312F720E3FE3700E20CC8 /* RateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E312F620E3FE3700E20CC8 /* RateCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		00935B0E21196F8A0039433C /* ConverterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterVC.swift; sourceTree = "<group>"; };
 		00C0DC8D20E54F1C0046FCCA /* CurrencyDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDetailsVC.swift; sourceTree = "<group>"; };
 		00C1C2A2216BCFA000321382 /* ConversionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionData.swift; sourceTree = "<group>"; };
+		00C1C2A4216BF92700321382 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		00E312F620E3FE3700E20CC8 /* RateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +76,7 @@
 		0072C5E520E298FD0099DF9A = {
 			isa = PBXGroup;
 			children = (
+				00C1C2A4216BF92700321382 /* README.md */,
 				0072C5F020E298FD0099DF9A /* EcbCurrencyConverter */,
 				0072C5EF20E298FD0099DF9A /* Products */,
 			);
@@ -227,6 +230,7 @@
 			files = (
 				0072C5FC20E299000099DF9A /* LaunchScreen.storyboard in Resources */,
 				0072C5F920E299000099DF9A /* Assets.xcassets in Resources */,
+				00C1C2A5216BF92700321382 /* README.md in Resources */,
 				0072C5F720E298FE0099DF9A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

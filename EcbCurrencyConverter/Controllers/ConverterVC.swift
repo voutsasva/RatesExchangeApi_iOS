@@ -63,7 +63,7 @@ class ConverterVC: UIViewController {
         }
     }
     
-    func getConversionData()-> ConversionData? {
+    func getConversionData() -> ConversionData? {
         guard
             let amount = txtLeftInput.text,
             let fromCur = lblLeftCurrency.text,
