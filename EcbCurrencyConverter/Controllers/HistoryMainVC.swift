@@ -10,15 +10,13 @@ import UIKit
 
 class HistoryMainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    //MARK: - Declarations
+    // MARK: - Declarations
     // --------------------
     private let cellId = "CurrencyCell"
     private var currenciesData: [Currency]?
     private var pickerDate: String?
-    
-    
-    
-    //MARK: - IBOutlets
+        
+    // MARK: - IBOutlets
     // ----------------
     @IBOutlet weak var tblCurrencies: UITableView!
     @IBOutlet weak var datePickerRate: UIDatePicker!
@@ -26,7 +24,7 @@ class HistoryMainVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     
     
-    //MARK: - IBActions
+    // MARK: - IBActions
     // ----------------
     @IBAction func btnDisplayRatesAction(_ sender: Any) {
         guard let _ = pickerDate else { return }
@@ -39,7 +37,7 @@ class HistoryMainVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     
     
-    //MARK: - Main methods
+    // MARK: - Main methods
     // -------------------
     func getSupportedCurrencies() {
         let spinner = showLoader(view: self.view)
@@ -69,7 +67,7 @@ class HistoryMainVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     
     
-    //MARK: - Table View delegate methods
+    // MARK: - Table View delegate methods
     // ---------------------------------
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return currenciesData?.count ?? 0
@@ -89,8 +87,8 @@ class HistoryMainVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     
     
-    //MARK: - Segues
-    //--------------
+    // MARK: - Segues
+    // --------------
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showHistory" {
             if let vc = segue.destination as? HistoryDetailsVC {
@@ -106,7 +104,7 @@ class HistoryMainVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     
     
-    //MARK: - View Controller Lifecycle
+    // MARK: - View Controller Lifecycle
     // ---------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()

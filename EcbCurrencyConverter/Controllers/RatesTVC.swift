@@ -10,22 +10,22 @@ import UIKit
 
 class RatesTVC: UITableViewController {
     
-    //MARK: - Properties
-    //------------------
+    // MARK: - Properties
+    // ------------------
     private let refreshCtrl = UIRefreshControl()
     private var allRates: RatesDetailModel?
     private let cellId = "cellRate"
     
     
-    //MARK: - IBOutlets
-    //-----------------
+    // MARK: - IBOutlets
+    // -----------------
     @IBOutlet weak var lblCurrenciesDate: UILabel!
     
     
     
     
-    //MARK: - Main methods
-    //--------------------
+    // MARK: - Main methods
+    // --------------------
     @objc func fetchRatesData() {
         let spinner = showLoader(view: self.view)
         let url = Routes.latestDetailedRatesUri
@@ -52,8 +52,8 @@ class RatesTVC: UITableViewController {
     
     
 
-    //MARK: - Table View delegate methods
-    //-----------------------------------
+    // MARK: - Table View delegate methods
+    // -----------------------------------
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allRates?.rates.count ?? 0
     }
@@ -73,8 +73,8 @@ class RatesTVC: UITableViewController {
 
     
     
-    //MARK: - Segues
-    //--------------
+    // MARK: - Segues
+    // --------------
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showConvert" {
             if let vc = segue.destination as? CurrencyDetailsVC {
@@ -86,8 +86,8 @@ class RatesTVC: UITableViewController {
 
     
     
-    //MARK: - View Controller Lifecycle
-    //---------------------------------
+    // MARK: - View Controller Lifecycle
+    // ---------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
         

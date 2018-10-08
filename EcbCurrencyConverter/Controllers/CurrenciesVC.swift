@@ -8,22 +8,21 @@
 
 import UIKit
 
-class CurrenciesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    //MARK: - Declarations
+class CurrenciesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {    
+    // MARK: - Declarations
     // --------------------
     private let cellId = "CurrencyCell"
     private var currenciesData: [Currency]?
     
     
 
-    //MARK: - IBOutlets
+    // MARK: - IBOutlets
     // ----------------
     @IBOutlet weak var tblCurrencies: UITableView!
     
     
     
-    //MARK: - Main methods
+    // MARK: - Main methods
     // ------------------
     func getSupportedCurrencies() {
         let spinner = showLoader(view: self.view)
@@ -36,7 +35,7 @@ class CurrenciesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     
     
-    //MARK: - Table View delegate methods
+    // MARK: - Table View delegate methods
     // ---------------------------------
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return currenciesData?.count ?? 0
@@ -54,7 +53,7 @@ class CurrenciesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     
     
-    //MARK: - View Controller Lifecycle
+    // MARK: - View Controller Lifecycle
     // ---------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()

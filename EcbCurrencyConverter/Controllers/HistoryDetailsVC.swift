@@ -10,16 +10,15 @@ import UIKit
 
 class HistoryDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    //MARK: - Properties
-    //------------------
+    // MARK: - Properties
+    // ------------------
     private let cellId = "cellRate"
     private var historyRates: RatesDetailModel?
     var historyDate: String?
     var currency: Currency?
-    
-    
-    //MARK: - IBOutlets
-    //-----------------
+        
+    // MARK: - IBOutlets
+    // -----------------
     @IBOutlet weak var tblHistoryRates: UITableView!
     @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var lblCurrency: UILabel!
@@ -27,8 +26,8 @@ class HistoryDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     
     
-    //MARK: - Main methods
-    //--------------------
+    // MARK: - Main methods
+    // --------------------
     func getData() {
         guard let currency = currency, let date = historyDate else { return }
         lblDate.text = date
@@ -52,8 +51,8 @@ class HistoryDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     
     
-    //MARK: - Table View delegate methods
-    //-----------------------------------
+    // MARK: - Table View delegate methods
+    // -----------------------------------
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return historyRates?.rates.count ?? 0
     }
@@ -71,8 +70,8 @@ class HistoryDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     
     
-    //MARK: - View Controller Lifecycle
-    //---------------------------------
+    // MARK: - View Controller Lifecycle
+    // ---------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
 

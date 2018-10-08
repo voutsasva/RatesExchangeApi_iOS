@@ -10,15 +10,15 @@ import UIKit
 
 class MainVC: UIViewController {
 
-    //MARK: - IBOutlets
-    //-----------------
+    // MARK: - IBOutlets
+    // -----------------
     @IBOutlet weak var imgStatus: UIImageView!
     @IBOutlet weak var statusIndicator: UIActivityIndicatorView!
     
     
     
     
-    //MARK: - Main methods
+    // MARK: - Main methods
     // ------------------
     func checkIfApiIsOnLine() {
         imgStatus.image = nil
@@ -33,7 +33,7 @@ class MainVC: UIViewController {
     
     
     
-    //MARK: - View Controller Lifecycle
+    // MARK: - View Controller Lifecycle
     // ---------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()

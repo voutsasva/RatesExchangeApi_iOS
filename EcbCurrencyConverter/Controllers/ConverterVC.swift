@@ -10,12 +10,11 @@ import UIKit
 
 class ConverterVC: UIViewController {
 
-    //MARK: - Declarations
+    // MARK: - Declarations
     // --------------------
     private var currentRatesDate: String?
     
-    
-    //MARK: - IBOutlets
+    // MARK: - IBOutlets
     // ----------------
     @IBOutlet weak var lblLastUpdate: UILabel!
     @IBOutlet weak var imgLeftCurrency: UIImageView!
@@ -27,7 +26,7 @@ class ConverterVC: UIViewController {
     
     
     
-    //MARK: - IBActions
+    // MARK: - IBActions
     // ----------------
     @IBAction func btnReplaceAction(_ sender: Any) {
         revertCurrencies(mainImg: imgLeftCurrency.image, mainCur: lblLeftCurrency.text, mainAmt: txtLeftInput.text)
@@ -41,7 +40,7 @@ class ConverterVC: UIViewController {
     
     
     
-    //MARK: - Main methods
+    // MARK: - Main methods
     // ------------------
     func initialData() {
         txtLeftInput.text = "1"
@@ -105,7 +104,7 @@ class ConverterVC: UIViewController {
     
     
     
-    //MARK: - View Controller Lifecycle
+    // MARK: - View Controller Lifecycle
     // ---------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -11,8 +11,7 @@ import UIKit
 
 class CurrencyDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    
-    //MARK: - Declarations
+    // MARK: - Declarations
     // --------------------
     var rate: RateDetail?
     private var currencyData: CurrencyHistory?
@@ -20,7 +19,7 @@ class CurrencyDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataS
     private let dataFromDate = "2000-01-01"
     
     
-    //MARK: - IBOutlets
+    // MARK: - IBOutlets
     // ----------------
     @IBOutlet weak var lblCurrencyDescr: UILabel!
     @IBOutlet weak var imgCurrency: UIImageView!
@@ -32,7 +31,7 @@ class CurrencyDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataS
     
     
     
-    //MARK: - Main methods
+    // MARK: - Main methods
     // ------------------
     func getCurrencyHistoryData(symbol currency: String) {
         let uri = "\(Routes.currencyHistoryRatesUri)&currency=\(currency)&from_date=\(dataFromDate)"
@@ -63,7 +62,7 @@ class CurrencyDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     
-    //MARK: - Table View delegate methods
+    // MARK: - Table View delegate methods
     // ---------------------------------
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return currencyData?.rates.count ?? 0
@@ -82,7 +81,7 @@ class CurrencyDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataS
     
     
     
-    //MARK: - View Controller Lifecycle
+    // MARK: - View Controller Lifecycle
     // ---------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
