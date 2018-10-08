@@ -19,3 +19,7 @@ Replace the `[YOUR_API_KEY]` in `Settings.swift` with your own API key from rate
 ## Author
 
 Vassilis Voutsas, voutsasva@gmail.com
+
+## License
+
+ECB Currency Converter is released under the MIT license. See [LICENSE](https://github.com/voutsasva/RatesExchangeApi_iOS/blob/master/LICENSE) for more information.
