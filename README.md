@@ -3,7 +3,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/73d0083700bd4157b2d225d6441598eb)](https://www.codacy.com/app/voutsasva/RatesExchangeApi_iOS?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=voutsasva/RatesExchangeApi_iOS&amp;utm_campaign=Badge_Grade)
 
 # ECB Currency Converter
-A fully functional currency converter for iOS written in Swift 4, based on Rates Exchange API.
+A fully functional currency converter for iOS written in Swift 4, based on Rates Exchange API. It's totally free!
 
 <img src="https://github.com/voutsasva/RatesExchangeApi_iOS/blob/master/Assets/Main%20screen.png" data-canonical-src="https://github.com/voutsasva/RatesExchangeApi_iOS/blob/master/Assets/Main%20screen.png" width="350" /> <img src="https://github.com/voutsasva/RatesExchangeApi_iOS/blob/master/Assets/Convert%20rates.png" data-canonical-src="https://github.com/voutsasva/RatesExchangeApi_iOS/blob/master/Assets/Convert%20rates.png" width="350" /> 
 
