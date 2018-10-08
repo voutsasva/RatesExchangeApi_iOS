@@ -8,24 +8,11 @@
 
 import UIKit
 
-struct ConversionData {
-    var fromCurrency: String?
-    var toCurrency: String?
-    var convertDate: String?
-    var fromAmount: Double?
-    
-    
-}
-
 class ConverterVC: UIViewController {
 
     //MARK: - Declarations
     // --------------------
-//    private var fromCurrency: String?
-//    private var toCurrency: String?
-//    private var latestDate: String?
-//    private var fromAmount: Double = 0
-    private var conversionData = ConversionData()
+    private var currentRatesDate: String?
     
     
     //MARK: - IBOutlets
@@ -43,11 +30,13 @@ class ConverterVC: UIViewController {
     //MARK: - IBActions
     // ----------------
     @IBAction func btnReplaceAction(_ sender: Any) {
+        revertCurrencies(mainImg: imgLeftCurrency.image, mainCur: lblLeftCurrency.text, mainAmt: txtLeftInput.text)
     }
     
     @IBAction func btnEqualAction(_ sender: Any) {
         
-        getConversionData()
+        guard let conversionData = getConversionData() else {return}
+        getApiEcbConvertRates(data: conversionData)
     }
     
     
@@ -56,15 +45,15 @@ class ConverterVC: UIViewController {
     // ------------------
     func initialData() {
         txtLeftInput.text = "1"
-        //let spinner = showLoader(view: self.view)
-        //DispatchQueue.main.async {
+        let spinner = showLoader(view: self.view)
+        DispatchQueue.main.async {
             self.getApiEcbLatestDate(completion: { (date: String?) in
                 guard let getDate = date else { return }
-                self.conversionData.convertDate = getDate
-                self.lblLastUpdate.text = "Last update date: \(getDate)"
+                self.currentRatesDate = getDate
+                self.lblLastUpdate.text = "Rates based on: \(self.currentRatesDate!)"
+                spinner.dismissLoader()
             })
-            //spinner.dismissLoader()
-        //}
+        }
     }
     
     func getApiEcbLatestDate(completion: @escaping (String?) -> Void) {
@@ -75,15 +64,44 @@ class ConverterVC: UIViewController {
         }
     }
     
-    func getConversionData() {
-        guard let amount = txtLeftInput.text, let fromCur = lblLeftCurrency.text, let toCur = lblRightCurrency.text else { return }
-        
-        conversionData.fromAmount = Double(amount)!
-        conversionData.fromCurrency = fromCur
-        conversionData.toCurrency = toCur
+    func getConversionData()-> ConversionData? {
+        guard
+            let amount = txtLeftInput.text,
+            let fromCur = lblLeftCurrency.text,
+            let toCur = lblRightCurrency.text,
+            let date = currentRatesDate
+            else { return nil }
+        let conversionData = ConversionData(fromCurrency: fromCur,
+                                            toCurrency: toCur,
+                                            convertDate: date,
+                                            fromAmount: Double(amount.replacingOccurrences(of: ",", with: ".")) ?? 0.0)
+        return conversionData
     }
     
+    func revertCurrencies(mainImg: UIImage?, mainCur: String?, mainAmt: String?) {
+        imgLeftCurrency.image = imgRightCurrency.image
+        lblLeftCurrency.text = lblRightCurrency.text
+        txtLeftInput.text = txtRightInput.text
+        imgRightCurrency.image = mainImg
+        lblRightCurrency.text = mainCur
+        txtRightInput.text = mainAmt
+    }
     
+    func getApiEcbConvertRates(data: ConversionData) {
+        let spinner = showLoader(view: self.view)
+        let callUri = createConvertRatesUri(fromCur: data.fromCurrency!, date: data.convertDate!, amount: data.fromAmount!, toCur: data.toCurrency!)
+        DispatchQueue.main.async {
+            ApiService.shared.fetchApiData(urlString: callUri) { (rates: RatesDetailModel) in
+                let amount = rates.rates[0].value
+                self.txtRightInput.text = "\(amount)"
+                spinner.dismissLoader()
+            }
+        }
+    }
+    
+    func createConvertRatesUri(fromCur: String, date: String, amount: Double, toCur: String) -> String {
+        return "\(Routes.convertRatesUri)&from=\(fromCur)&amount=\(amount)&date=\(date)&currencies=\(toCur)"
+    }
     
     
     
