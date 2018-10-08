@@ -11,7 +11,7 @@ class GlobalSettings {
     
     //Rates Exchange API key [YOUR_API_KEY]
     //Get your own api key from https://ratesexchange.eu
-    let ratesExchangeApiKey = "[YOUR_API_KEY]"
+    let ratesExchangeApiKey = "e05b6a85-cd0d-4df6-9fd7-3d870d13e1be"
     
     
 }
