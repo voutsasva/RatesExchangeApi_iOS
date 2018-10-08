@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class CurrencyDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // MARK: - Declarations
@@ -17,7 +16,6 @@ class CurrencyDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataS
     private var currencyData: CurrencyHistory?
     private let cellId = "CurrencyHistoryCell"
     private let dataFromDate = "2000-01-01"
-    
     
     // MARK: - IBOutlets
     // ----------------
@@ -28,8 +26,6 @@ class CurrencyDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBOutlet weak var lblLatestRate: UILabel!
     @IBOutlet weak var lblMinDate: UILabel!
     @IBOutlet weak var lblMaxDate: UILabel!
-    
-    
     
     // MARK: - Main methods
     // ------------------
@@ -50,17 +46,16 @@ class CurrencyDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func currencyDetails(rates: [CurrencyHistoryRate]) {
-        let minRate = rates.map{ $0.value }.min() ?? 0
-        let maxRate = rates.map{ $0.value }.max() ?? 0
-        let minHistoryRate = rates.filter{ $0.value == minRate }.first!
-        let maxHistoryRate = rates.filter{ $0.value == maxRate }.first!
+        let minRate = rates.map { $0.value }.min() ?? 0
+        let maxRate = rates.map { $0.value }.max() ?? 0
+        let minHistoryRate = rates.filter { $0.value == minRate }.first!
+        let maxHistoryRate = rates.filter { $0.value == maxRate }.first!
         let latestRate = rates.first!
         lblMinDate.text = "Minimum (\(minHistoryRate.date)): \(minHistoryRate.value)"
         lblMaxDate.text = "Maximum (\(maxHistoryRate.date)): \(maxHistoryRate.value)"
         lblLatestDate.text = "Latest: \(latestRate.date)"
         lblLatestRate.text = "EUR 1 = \(self.rate!.symbol) \(latestRate.value)"
     }
-    
     
     // MARK: - Table View delegate methods
     // ---------------------------------
@@ -69,7 +64,7 @@ class CurrencyDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as! CurrencyHistoryCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CurrencyHistoryCell else { return UITableViewCell() }
         guard let data = currencyData?.rates else { return cell }
         let rateData = data[indexPath.row]
         cell.lblDate.text = rateData.date
@@ -77,9 +72,6 @@ class CurrencyDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataS
         
         return cell
     }
-    
-    
-    
     
     // MARK: - View Controller Lifecycle
     // ---------------------------------
