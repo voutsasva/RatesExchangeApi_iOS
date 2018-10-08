@@ -5,6 +5,10 @@
 # ECB Currency Converter
 A fully functional currency converter for iOS written in Swift 4, based on Rates Exchange API.
 
+<img src="https://github.com/voutsasva/RatesExchangeApi_iOS/blob/master/Assets/Main%20screen.png" data-canonical-src="https://github.com/voutsasva/RatesExchangeApi_iOS/blob/master/Assets/Main%20screen.png" width="350" /> <img src="https://github.com/voutsasva/RatesExchangeApi_iOS/blob/master/Assets/Convert%20rates.png" data-canonical-src="https://github.com/voutsasva/RatesExchangeApi_iOS/blob/master/Assets/Convert%20rates.png" width="350" /> 
+
+<img src="https://github.com/voutsasva/RatesExchangeApi_iOS/blob/master/Assets/Latest%20rates.png" data-canonical-src="https://github.com/voutsasva/RatesExchangeApi_iOS/blob/master/Assets/Latest%20rates.png" width="350" /> <img src="https://github.com/voutsasva/RatesExchangeApi_iOS/blob/master/Assets/History%20rates.png" data-canonical-src="https://github.com/voutsasva/RatesExchangeApi_iOS/blob/master/Assets/History%20rates.png" width="350" /> 
+
 ## Requirements
 To use the app, all you need is an API key for the [Rates Exchange API](https://ratesexchange.eu/). ECB currency converter supports iOS (≥9.0).
 
