@@ -1,0 +1,12 @@
+language: swift
+
+osx_image: xcode10
+
+xcode_project: EcbCurrencyConverter.xcodeproj
+xcode_scheme: EcbCurrencyConverter
+
+script:
+  - xcodebuild -project EcbCurrencyConverter.xcodeproj -scheme EcbCurrencyConverter -destination 'platform=iOS Simulator,name=iPhone 8 Plus,OS=11.2' clean build test
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
