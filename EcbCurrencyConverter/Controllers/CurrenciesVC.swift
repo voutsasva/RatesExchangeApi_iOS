@@ -9,18 +9,16 @@
 import UIKit
 
 class CurrenciesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {    
+    
     // MARK: - Declarations
     // --------------------
     private let cellId = "CurrencyCell"
     private var currenciesData: [Currency]?
+    internal var selectedCurrency = ConversionCurrencyData()
     
-    
-
     // MARK: - IBOutlets
     // ----------------
     @IBOutlet weak var tblCurrencies: UITableView!
-    
-    
     
     // MARK: - Main methods
     // ------------------
@@ -33,8 +31,6 @@ class CurrenciesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
     }
     
-    
-    
     // MARK: - Table View delegate methods
     // ---------------------------------
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -42,16 +38,19 @@ class CurrenciesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as! CurrencyCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CurrencyCell else { return UITableViewCell() }
         guard let data = currenciesData else { return cell }
         let currency = data[indexPath.row]
         cell.imgCurrency.image = UIImage(named: "\(currency.symbol.lowercased())")
         cell.lblCurrencyDescr.text = "\(currency.description) (\(currency.symbol))"
-        
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let _ = selectedCurrency.details else { return }
+        selectedCurrency.currency = currenciesData?[indexPath.row]
+        self.performSegue(withIdentifier: "unwindFromCurrenciesList", sender: self)
+    }
     
     // MARK: - View Controller Lifecycle
     // ---------------------------------
@@ -64,9 +63,5 @@ class CurrenciesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         getSupportedCurrencies()
     }
-
-    
-    
-
 
 }

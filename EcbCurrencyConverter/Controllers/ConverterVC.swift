@@ -13,7 +13,9 @@ class ConverterVC: UIViewController {
     // MARK: - Declarations
     // --------------------
     private var currentRatesDate: String?
-    
+    private var selectedCurrency: ConversionCurrencyData?
+    private var selectedConversionDetails = ConversionDetails()
+
     // MARK: - IBOutlets
     // ----------------
     @IBOutlet weak var lblLastUpdate: UILabel!
@@ -23,27 +25,37 @@ class ConverterVC: UIViewController {
     @IBOutlet weak var lblRightCurrency: UILabel!
     @IBOutlet weak var txtLeftInput: UITextField!
     @IBOutlet weak var txtRightInput: UITextField!
-    
-    
-    
+
     // MARK: - IBActions
     // ----------------
     @IBAction func btnReplaceAction(_ sender: Any) {
         revertCurrencies(mainImg: imgLeftCurrency.image, mainCur: lblLeftCurrency.text, mainAmt: txtLeftInput.text)
     }
-    
+
     @IBAction func btnEqualAction(_ sender: Any) {
         
         guard let conversionData = getConversionData() else {return}
         getApiEcbConvertRates(data: conversionData)
     }
+
+    @IBAction func btnFromAction(_ sender: Any) {
+        selectedConversionDetails.amount = txtLeftInput.text
+        selectedConversionDetails.source = "left"
+        self.performSegue(withIdentifier: "currencies", sender: self)
+    }
     
+    @IBAction func btnToAction(_ sender: Any) {
+        selectedConversionDetails.amount = txtRightInput.text
+        selectedConversionDetails.source = "right"
+        self.performSegue(withIdentifier: "currencies", sender: self)
+    }
     
     
     // MARK: - Main methods
     // ------------------
     func initialData() {
-        txtLeftInput.text = "1"
+        setFromCurrencyData(img: UIImage(named: "eur"), curIso: "EUR", amount: "1.0")
+        setToCurrencyData(img: UIImage(named: "usd"), curIso: "USD", amount: "0.0")
         let spinner = showLoader(view: self.view)
         DispatchQueue.main.async {
             self.getApiEcbLatestDate(completion: { (date: String?) in
@@ -54,7 +66,7 @@ class ConverterVC: UIViewController {
             })
         }
     }
-    
+
     func getApiEcbLatestDate(completion: @escaping (String?) -> Void) {
         var date: String?
         ApiService.shared.fetchApiData(urlString: Routes.latestDetailedRatesUri) { (rates: RatesDetailModel) in
@@ -62,7 +74,7 @@ class ConverterVC: UIViewController {
             completion(date)
         }
     }
-    
+
     func getConversionData() -> ConversionData? {
         guard
             let amount = txtLeftInput.text,
@@ -76,7 +88,7 @@ class ConverterVC: UIViewController {
                                             fromAmount: Double(amount.replacingOccurrences(of: ",", with: ".")) ?? 0.0)
         return conversionData
     }
-    
+
     func revertCurrencies(mainImg: UIImage?, mainCur: String?, mainAmt: String?) {
         imgLeftCurrency.image = imgRightCurrency.image
         lblLeftCurrency.text = lblRightCurrency.text
@@ -84,6 +96,18 @@ class ConverterVC: UIViewController {
         imgRightCurrency.image = mainImg
         lblRightCurrency.text = mainCur
         txtRightInput.text = mainAmt
+    }
+
+    func setFromCurrencyData(img: UIImage?, curIso: String, amount: String) {
+        imgLeftCurrency.image = img
+        lblLeftCurrency.text = curIso
+        txtLeftInput.text = amount
+    }
+
+    func setToCurrencyData(img: UIImage?, curIso: String, amount: String) {
+        imgRightCurrency.image = img
+        lblRightCurrency.text = curIso
+        txtRightInput.text = amount
     }
     
     func getApiEcbConvertRates(data: ConversionData) {
@@ -97,13 +121,32 @@ class ConverterVC: UIViewController {
             }
         }
     }
-    
+
     func createConvertRatesUri(fromCur: String, date: String, amount: Double, toCur: String) -> String {
         return "\(Routes.convertRatesUri)&from=\(fromCur)&amount=\(amount)&date=\(date)&currencies=\(toCur)"
     }
-    
-    
-    
+
+    // MARK: - Navigation
+    // ------------------
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "currencies" {
+            guard let currenciesVC = segue.destination as? CurrenciesVC else {return}
+            currenciesVC.selectedCurrency.details = self.selectedConversionDetails
+        }
+    }
+
+    @IBAction func unwindFromCurrenciesList(_ segue: UIStoryboardSegue) {
+        if let currenciesVC = segue.source as? CurrenciesVC {
+            let data = currenciesVC.selectedCurrency
+            guard let _source = data.details?.source, let _amount = data.details?.amount, let _currency = data.currency else { return }
+            if _source == "left" {
+                setFromCurrencyData(img: UIImage(named: _currency.symbol.lowercased()), curIso: _currency.symbol, amount: _amount)
+            } else {
+                setToCurrencyData(img: UIImage(named: _currency.symbol.lowercased()), curIso: _currency.symbol, amount: _amount)
+            }
+        }
+    }
+
     // MARK: - View Controller Lifecycle
     // ---------------------------------
     override func viewDidLoad() {
@@ -120,8 +163,5 @@ class ConverterVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-
 
 }
