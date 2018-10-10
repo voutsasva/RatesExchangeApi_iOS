@@ -9,7 +9,7 @@
 import UIKit
 
 class RatesTVC: UITableViewController {
-    
+
     // MARK: - Properties
     // ------------------
     private let refreshCtrl = UIRefreshControl()

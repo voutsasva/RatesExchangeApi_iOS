@@ -9,9 +9,9 @@
 import Foundation
 
 struct ApiService {
-    
+
     static let shared = ApiService()
-    
+
     func fetchApiData<T: Decodable>(urlString: String, completion: @escaping (T) -> ()) {
         guard let url = URL(string: urlString) else { return }
         print("*************")
@@ -22,7 +22,7 @@ struct ApiService {
                 print("Failed to get data:", err)
                 return
             }
-            
+
             guard let data = data else { return }
             do {
                 let responseModel = try JSONDecoder().decode(T.self, from: data)
@@ -32,9 +32,9 @@ struct ApiService {
             } catch let jsonErr {
                 print("Failed to serialize json:", jsonErr)
             }
-            
+
         }.resume()
-        
+
     }
-    
+
 }

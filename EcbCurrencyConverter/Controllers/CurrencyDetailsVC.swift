@@ -69,7 +69,6 @@ class CurrencyDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataS
         let rateData = data[indexPath.row]
         cell.lblDate.text = rateData.date
         cell.lblAmount.text = String(rateData.value)
-        
         return cell
     }
 

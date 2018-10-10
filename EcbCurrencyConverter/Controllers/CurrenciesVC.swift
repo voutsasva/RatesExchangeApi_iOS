@@ -8,8 +8,8 @@
 
 import UIKit
 
-class CurrenciesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {    
-    
+class CurrenciesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
     // MARK: - Declarations
     // --------------------
     private let cellId = "CurrencyCell"

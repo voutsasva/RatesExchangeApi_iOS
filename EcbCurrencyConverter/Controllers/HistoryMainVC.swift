@@ -28,6 +28,7 @@ class HistoryMainVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         guard let _ = pickerDate else { return }
         self.performSegue(withIdentifier: "showHistory", sender: nil)
     }
+    
     @IBAction func datePickerChanged(_ sender: Any) {
         pickerDate = getDateFromPicker()
     }
@@ -101,9 +102,9 @@ class HistoryMainVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         navigationItem.title = "Historical"
         navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.prefersLargeTitles = false
-        
+
         setupDatePicker()
-        
+
         getSupportedCurrencies()
     }
 

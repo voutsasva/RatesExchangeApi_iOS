@@ -32,11 +32,9 @@ class MainVC: UIViewController {
     // ---------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         navigationItem.title = "Currencies"
         navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.prefersLargeTitles = false
-
         checkIfApiIsOnLine()
     }
 

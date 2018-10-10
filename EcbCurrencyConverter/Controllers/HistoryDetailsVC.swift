@@ -68,11 +68,9 @@ class HistoryDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     // ---------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
-
         navigationItem.title = "Historical Rates (\(currency?.symbol ?? ""))"
         navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.prefersLargeTitles = false
-        
         getData()
     }
 
