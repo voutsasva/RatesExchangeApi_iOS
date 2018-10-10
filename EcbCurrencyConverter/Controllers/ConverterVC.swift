@@ -33,7 +33,6 @@ class ConverterVC: UIViewController {
     }
 
     @IBAction func btnEqualAction(_ sender: Any) {
-        
         guard let conversionData = getConversionData() else {return}
         getApiEcbConvertRates(data: conversionData)
     }
@@ -115,8 +114,10 @@ class ConverterVC: UIViewController {
         let callUri = createConvertRatesUri(fromCur: data.fromCurrency!, date: data.convertDate!, amount: data.fromAmount!, toCur: data.toCurrency!)
         DispatchQueue.main.async {
             ApiService.shared.fetchApiData(urlString: callUri) { (rates: RatesDetailModel) in
-                let amount = rates.rates[0].value
-                self.txtRightInput.text = "\(amount)"
+                if !rates.rates.isEmpty {
+                    let amount = rates.rates[0].value
+                    self.txtRightInput.text = "\(amount)"
+                }
                 spinner.dismissLoader()
             }
         }
@@ -138,11 +139,11 @@ class ConverterVC: UIViewController {
     @IBAction func unwindFromCurrenciesList(_ segue: UIStoryboardSegue) {
         if let currenciesVC = segue.source as? CurrenciesVC {
             let data = currenciesVC.selectedCurrency
-            guard let _source = data.details?.source, let _amount = data.details?.amount, let _currency = data.currency else { return }
-            if _source == "left" {
-                setFromCurrencyData(img: UIImage(named: _currency.symbol.lowercased()), curIso: _currency.symbol, amount: _amount)
+            guard let source = data.details?.source, let amount = data.details?.amount, let currency = data.currency else { return }
+            if source == "left" {
+                setFromCurrencyData(img: UIImage(named: currency.symbol.lowercased()), curIso: currency.symbol, amount: amount)
             } else {
-                setToCurrencyData(img: UIImage(named: _currency.symbol.lowercased()), curIso: _currency.symbol, amount: _amount)
+                setToCurrencyData(img: UIImage(named: currency.symbol.lowercased()), curIso: currency.symbol, amount: amount)
             }
         }
     }
