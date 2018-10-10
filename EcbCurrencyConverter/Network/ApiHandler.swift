@@ -17,12 +17,17 @@ struct ApiService {
         print("*************")
         print("Endpoint url: \(url)")
         print("*************")
-        URLSession.shared.dataTask(with: url) { (data, _, err) in
+        URLSession.shared.dataTask(with: url) { (data, response, err) in
             if let err = err {
                 print("Failed to get data:", err)
                 return
             }
-
+            if let httpResponse = response as? HTTPURLResponse {
+                if httpResponse.statusCode != 200 {
+                    self.errorHandle(httpResponse: httpResponse, data: data)
+                    return
+                }
+            }
             guard let data = data else { return }
             do {
                 let responseModel = try JSONDecoder().decode(T.self, from: data)
@@ -35,6 +40,19 @@ struct ApiService {
 
         }.resume()
 
+    }
+
+    func errorHandle(httpResponse: HTTPURLResponse, data: Data?) {
+        print("Status code: \(httpResponse.statusCode)")
+        do {
+            guard let data = data else { return }
+            let jsonDecoder = JSONDecoder()
+            let error = try jsonDecoder.decode(ErrorModel.self, from: data)
+            print("Error code : \(error.Code ?? "")")
+            print("Message : \(error.Message ?? "")")
+        }
+        catch {
+        }
     }
 
 }
