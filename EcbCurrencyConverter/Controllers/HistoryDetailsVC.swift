@@ -16,14 +16,14 @@ class HistoryDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     private var historyRates: RatesDetailModel?
     var historyDate: String?
     var currency: Currency?
-        
+
     // MARK: - IBOutlets
     // -----------------
     @IBOutlet weak var tblHistoryRates: UITableView!
     @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var lblCurrency: UILabel!
     @IBOutlet weak var lblCurrencyInfo: UILabel!
-    
+
     // MARK: - Main methods
     // --------------------
     func getData() {
@@ -33,7 +33,7 @@ class HistoryDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         lblCurrencyInfo.text = "One '\(currency.symbol)' against other currencies"
         fetchRatesData(createHistoryDataUri(symbol: currency.symbol, date: date))
     }
-    
+
     func createHistoryDataUri(symbol currency: String, date: String) -> String {
         return "\(Routes.historyRatesForCurrency)&base_currency=\(currency)&date=\(date)"
     }
@@ -46,13 +46,13 @@ class HistoryDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
             spinner.dismissLoader()
         }
     }
-    
+
     // MARK: - Table View delegate methods
     // -----------------------------------
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return historyRates?.rates.count ?? 0
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? RateCell else {return UITableViewCell()}
         guard let data = historyRates?.rates else { return cell }
@@ -63,7 +63,7 @@ class HistoryDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         cell.imgCurrency.image = UIImage(named: "\(rateData.symbol.lowercased())")
         return cell
     }
-    
+
     // MARK: - View Controller Lifecycle
     // ---------------------------------
     override func viewDidLoad() {
@@ -79,6 +79,5 @@ class HistoryDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
 
 }

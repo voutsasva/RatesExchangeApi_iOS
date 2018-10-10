@@ -15,28 +15,23 @@ class HistoryMainVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     private let cellId = "CurrencyCell"
     private var currenciesData: [Currency]?
     private var pickerDate: String?
-        
+
     // MARK: - IBOutlets
     // ----------------
     @IBOutlet weak var tblCurrencies: UITableView!
     @IBOutlet weak var datePickerRate: UIDatePicker!
     @IBOutlet weak var btnDisplayRates: UIButton!
-    
-    
-    
+
     // MARK: - IBActions
     // ----------------
     @IBAction func btnDisplayRatesAction(_ sender: Any) {
         guard let _ = pickerDate else { return }
         self.performSegue(withIdentifier: "showHistory", sender: nil)
     }
-    
     @IBAction func datePickerChanged(_ sender: Any) {
         pickerDate = getDateFromPicker()
     }
-    
-    
-    
+
     // MARK: - Main methods
     // -------------------
     func getSupportedCurrencies() {
@@ -50,7 +45,7 @@ class HistoryMainVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             self.pickerDate = self.getDateFromPicker()
         }
     }
-    
+
     func getDateFromPicker() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
@@ -58,23 +53,21 @@ class HistoryMainVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         print("Selected date: \(selectedDate)")
         return selectedDate
     }
-    
+
     private func setupDatePicker() {
         let calendarDate = Calendar.current.date(byAdding: .day, value: -1, to: Date())
         datePickerRate.setDate(calendarDate!, animated: true)
         datePickerRate.maximumDate = calendarDate
     }
-    
-    
-    
+
     // MARK: - Table View delegate methods
     // ---------------------------------
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return currenciesData?.count ?? 0
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as! CurrencyCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CurrencyCell else { return UITableViewCell() }
         guard let data = currenciesData else { return cell }
         let currency = data[indexPath.row]
         cell.imgCurrency.image = UIImage(named: "\(currency.symbol.lowercased())")
@@ -84,9 +77,7 @@ class HistoryMainVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         }
         return cell
     }
-    
-    
-    
+
     // MARK: - Segues
     // --------------
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -101,9 +92,7 @@ class HistoryMainVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             }
         }
     }
-    
-    
-    
+
     // MARK: - View Controller Lifecycle
     // ---------------------------------
     override func viewDidLoad() {
@@ -121,8 +110,5 @@ class HistoryMainVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
-    
-    
 
 }

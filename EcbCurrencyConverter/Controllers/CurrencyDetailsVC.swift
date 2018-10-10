@@ -16,7 +16,7 @@ class CurrencyDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataS
     private var currencyData: CurrencyHistory?
     private let cellId = "CurrencyHistoryCell"
     private let dataFromDate = "2000-01-01"
-    
+
     // MARK: - IBOutlets
     // ----------------
     @IBOutlet weak var lblCurrencyDescr: UILabel!
@@ -26,14 +26,14 @@ class CurrencyDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBOutlet weak var lblLatestRate: UILabel!
     @IBOutlet weak var lblMinDate: UILabel!
     @IBOutlet weak var lblMaxDate: UILabel!
-    
+
     // MARK: - Main methods
     // ------------------
     func getCurrencyHistoryData(symbol currency: String) {
         let uri = "\(Routes.currencyHistoryRatesUri)&currency=\(currency)&from_date=\(dataFromDate)"
         fetchHistoryCurrencyData(uri)
     }
-    
+
     func fetchHistoryCurrencyData(_ url: String) {
         let spinner = showLoader(view: self.view)
         ApiService.shared.fetchApiData(urlString: url) { (rates: CurrencyHistory) in
@@ -44,7 +44,7 @@ class CurrencyDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataS
             spinner.dismissLoader()
         }
     }
-    
+
     func currencyDetails(rates: [CurrencyHistoryRate]) {
         let minRate = rates.map { $0.value }.min() ?? 0
         let maxRate = rates.map { $0.value }.max() ?? 0
@@ -56,13 +56,13 @@ class CurrencyDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataS
         lblLatestDate.text = "Latest: \(latestRate.date)"
         lblLatestRate.text = "EUR 1 = \(self.rate!.symbol) \(latestRate.value)"
     }
-    
+
     // MARK: - Table View delegate methods
     // ---------------------------------
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return currencyData?.rates.count ?? 0
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CurrencyHistoryCell else { return UITableViewCell() }
         guard let data = currencyData?.rates else { return cell }
@@ -72,7 +72,7 @@ class CurrencyDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataS
         
         return cell
     }
-    
+
     // MARK: - View Controller Lifecycle
     // ---------------------------------
     override func viewDidLoad() {
@@ -88,6 +88,5 @@ class CurrencyDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataS
         
         getCurrencyHistoryData(symbol: rateData.symbol)
     }
-
 
 }

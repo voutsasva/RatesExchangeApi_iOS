@@ -14,10 +14,7 @@ class MainVC: UIViewController {
     // -----------------
     @IBOutlet weak var imgStatus: UIImageView!
     @IBOutlet weak var statusIndicator: UIActivityIndicatorView!
-    
-    
-    
-    
+
     // MARK: - Main methods
     // ------------------
     func checkIfApiIsOnLine() {
@@ -30,9 +27,7 @@ class MainVC: UIViewController {
             self.statusIndicator.stopAnimating()
         }
     }
-    
-    
-    
+
     // MARK: - View Controller Lifecycle
     // ---------------------------------
     override func viewDidLoad() {
@@ -44,7 +39,5 @@ class MainVC: UIViewController {
 
         checkIfApiIsOnLine()
     }
-
-
 
 }
