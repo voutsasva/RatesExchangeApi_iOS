@@ -36,7 +36,11 @@ class CurrencyDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataS
 
     func fetchHistoryCurrencyData(_ url: String) {
         let spinner = showLoader(view: self.view)
-        ApiService.shared.fetchApiData(urlString: url) { (rates: CurrencyHistory) in
+        ApiService.shared.fetchApiData(urlString: url) { (rates: CurrencyHistory?, error: ErrorModel?) in
+            if let error = error {
+                spinner.dismissLoader()
+                self.showAlertMessage(titleStr: "Error", messageStr: error.Message!)
+            }
             self.currencyData = rates
             self.tableView.reloadData()
             guard let data = self.currencyData else {return}

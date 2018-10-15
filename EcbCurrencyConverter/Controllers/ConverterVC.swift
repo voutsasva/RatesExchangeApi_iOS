@@ -68,7 +68,11 @@ class ConverterVC: UIViewController {
 
     func getApiEcbLatestDate(completion: @escaping (String?) -> Void) {
         var date: String?
-        ApiService.shared.fetchApiData(urlString: Routes.latestDetailedRatesUri) { (rates: RatesDetailModel) in
+        ApiService.shared.fetchApiData(urlString: Routes.latestDetailedRatesUri) { (rates: RatesDetailModel?, error: ErrorModel?) in
+            if let error = error {
+                self.showAlertMessage(titleStr: "Error", messageStr: error.Message!)
+            }
+            guard let rates = rates else { return }
             date = rates.date
             completion(date)
         }
@@ -113,7 +117,12 @@ class ConverterVC: UIViewController {
         let spinner = showLoader(view: self.view)
         let callUri = createConvertRatesUri(fromCur: data.fromCurrency!, date: data.convertDate!, amount: data.fromAmount!, toCur: data.toCurrency!)
         DispatchQueue.main.async {
-            ApiService.shared.fetchApiData(urlString: callUri) { (rates: RatesDetailModel) in
+            ApiService.shared.fetchApiData(urlString: callUri) { (rates: RatesDetailModel?, error: ErrorModel?) in
+                if let error = error {
+                    spinner.dismissLoader()
+                    self.showAlertMessage(titleStr: "Error", messageStr: error.Message!)
+                }
+                guard let rates = rates else { return }
                 if !rates.rates.isEmpty {
                     let amount = rates.rates[0].value
                     self.txtRightInput.text = "\(amount)"

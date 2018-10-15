@@ -25,7 +25,12 @@ class RatesTVC: UITableViewController {
     @objc func fetchRatesData() {
         let spinner = showLoader(view: self.view)
         let url = Routes.latestDetailedRatesUri
-        ApiService.shared.fetchApiData(urlString: url) { (rates: RatesDetailModel) in
+        ApiService.shared.fetchApiData(urlString: url) { (rates: RatesDetailModel?, error: ErrorModel?) in
+            if let error = error {
+                spinner.dismissLoader()
+                self.showAlertMessage(titleStr: "Error", messageStr: error.Message!)
+            }
+            guard let rates = rates else { return }
             self.allRates = rates
             self.tableView.reloadData()
             self.lblCurrenciesDate.text = "Last update date: \(self.allRates!.date)"

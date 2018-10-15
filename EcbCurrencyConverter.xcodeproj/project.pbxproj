@@ -32,6 +32,7 @@
 		00C1C2A3216BCFA000321382 /* ConversionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C1C2A2216BCFA000321382 /* ConversionData.swift */; };
 		00C1C2A5216BF92700321382 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 00C1C2A4216BF92700321382 /* README.md */; };
 		00E312F720E3FE3700E20CC8 /* RateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E312F620E3FE3700E20CC8 /* RateCell.swift */; };
+		00F09B4F2174F7AA00732005 /* UIAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F09B4E2174F7AA00732005 /* UIAlertView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		00C1C2A2216BCFA000321382 /* ConversionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionData.swift; sourceTree = "<group>"; };
 		00C1C2A4216BF92700321382 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		00E312F620E3FE3700E20CC8 /* RateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateCell.swift; sourceTree = "<group>"; };
+		00F09B4E2174F7AA00732005 /* UIAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				0073FB2520F77C62008A04BF /* UIActivityIndicatorView.swift */,
+				00F09B4E2174F7AA00732005 /* UIAlertView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				00935B0B211078CF0039433C /* Currency.swift in Sources */,
 				0062ACAF20EA9C92008CBC59 /* MainVC.swift in Sources */,
 				0072C60920E29E380099DF9A /* RatesDetailModel.swift in Sources */,
+				00F09B4F2174F7AA00732005 /* UIAlertView.swift in Sources */,
 				00935B0D21109D6E0039433C /* HistoryDetailsVC.swift in Sources */,
 				00E312F720E3FE3700E20CC8 /* RateCell.swift in Sources */,
 			);

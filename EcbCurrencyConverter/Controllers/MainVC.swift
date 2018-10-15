@@ -21,9 +21,12 @@ class MainVC: UIViewController {
         imgStatus.image = nil
         statusIndicator.startAnimating()
         let url = Routes.apiCheckOnLine
-        ApiService.shared.fetchApiData(urlString: url) { (response: ResultModel) in
-            print("API is online: \(response.result)")
-            self.imgStatus.image = response.result ? #imageLiteral(resourceName: "online") : #imageLiteral(resourceName: "offline")
+        ApiService.shared.fetchApiData(urlString: url) { (response: ResultModel?, error: ErrorModel?) in
+            if let error = error {
+                self.showAlertMessage(titleStr: "Error", messageStr: error.Message!)
+            }
+            print("API is online: \(response!.result)")
+            self.imgStatus.image = response!.result ? #imageLiteral(resourceName: "online") : #imageLiteral(resourceName: "offline")
             self.statusIndicator.stopAnimating()
         }
     }

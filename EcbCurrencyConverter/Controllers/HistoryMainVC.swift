@@ -38,7 +38,11 @@ class HistoryMainVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     func getSupportedCurrencies() {
         let spinner = showLoader(view: self.view)
         btnDisplayRates.isEnabled = false
-        ApiService.shared.fetchApiData(urlString: Routes.currenciesUri) { (currencies: [Currency]) in
+        ApiService.shared.fetchApiData(urlString: Routes.currenciesUri) { (currencies: [Currency]?, error: ErrorModel?) in
+            if let error = error {
+                spinner.dismissLoader()
+                self.showAlertMessage(titleStr: "Error", messageStr: error.Message!)
+            }
             self.currenciesData = currencies
             self.tblCurrencies.reloadData()
             spinner.dismissLoader()

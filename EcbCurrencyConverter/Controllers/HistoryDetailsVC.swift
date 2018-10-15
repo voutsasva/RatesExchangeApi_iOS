@@ -40,7 +40,11 @@ class HistoryDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
 
     func fetchRatesData(_ url: String) {
         let spinner = showLoader(view: self.view)
-        ApiService.shared.fetchApiData(urlString: url) { (rates: RatesDetailModel) in
+        ApiService.shared.fetchApiData(urlString: url) { (rates: RatesDetailModel?, error: ErrorModel?) in
+            if let error = error {
+                spinner.dismissLoader()
+                self.showAlertMessage(titleStr: "Error", messageStr: error.Message!)
+            }
             self.historyRates = rates
             self.tblHistoryRates.reloadData()
             spinner.dismissLoader()

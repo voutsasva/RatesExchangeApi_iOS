@@ -24,7 +24,11 @@ class CurrenciesVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     // ------------------
     func getSupportedCurrencies() {
         let spinner = showLoader(view: self.view)
-        ApiService.shared.fetchApiData(urlString: Routes.currenciesUri) { (currencies: [Currency]) in
+        ApiService.shared.fetchApiData(urlString: Routes.currenciesUri) { (currencies: [Currency]?, error: ErrorModel?) in
+            if let error = error {
+                spinner.dismissLoader()
+                self.showAlertMessage(titleStr: "Error", messageStr: error.Message!)
+            }
             self.currenciesData = currencies
             self.tblCurrencies.reloadData()
             spinner.dismissLoader()

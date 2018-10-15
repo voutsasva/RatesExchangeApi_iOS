@@ -9,5 +9,4 @@
 struct ErrorModel: Decodable {
     let Code: String?
     let Message: String?
-    
 }
