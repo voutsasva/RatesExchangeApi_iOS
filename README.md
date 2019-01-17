@@ -23,6 +23,11 @@ Documentation for all api calls, with examples, is available at [Rates Exchange 
 ## Usage
 
 Replace the `[YOUR_API_KEY]` in `Settings.swift` with your own API key from rates exchange api.
+```swift
+    // Rates Exchange API key [YOUR_API_KEY]
+    // Get your own api key from https://ratesexchange.eu
+    let ratesExchangeApiKey = "[YOUR_API_KEY]"
+```
 
 ## Communication
 
