@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6Zo-RK-bUm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6Zo-RK-bUm">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -283,12 +283,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ECB logo" translatesAutoresizingMaskIntoConstraints="NO" id="eUx-Ar-cEn">
+                                <rect key="frame" x="60" y="94" width="255" height="164"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wq1-qQ-D5I">
-                                <rect key="frame" x="87.5" y="296" width="200" height="35"/>
+                                <rect key="frame" x="87.5" y="308" width="200" height="35"/>
                                 <color key="backgroundColor" red="0.024394605308771133" green="0.32284840941429138" blue="0.59277135133743286" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="0bF-C0-W18"/>
-                                    <constraint firstAttribute="width" constant="200" id="NNK-Ut-GSk"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="NNK-Ut-GSk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Latest ECB Rates">
@@ -299,7 +302,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQC-Uk-HQ8">
-                                <rect key="frame" x="87.5" y="351" width="200" height="35"/>
+                                <rect key="frame" x="87.5" y="363" width="200" height="35"/>
                                 <color key="backgroundColor" red="0.024394605310000001" green="0.32284840939999998" blue="0.59277135130000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="History ECB Rates">
@@ -310,7 +313,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Dg-6W-keb">
-                                <rect key="frame" x="87.5" y="461" width="200" height="35"/>
+                                <rect key="frame" x="87.5" y="473" width="200" height="35"/>
                                 <color key="backgroundColor" red="0.024394605310000001" green="0.32284840939999998" blue="0.59277135130000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Supported Currencies">
@@ -320,11 +323,8 @@
                                     <segue destination="Yok-7u-fta" kind="show" id="TF8-Dj-FIP"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ECB logo" translatesAutoresizingMaskIntoConstraints="NO" id="eUx-Ar-cEn">
-                                <rect key="frame" x="60" y="94" width="255" height="164"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUs-M0-cft">
-                                <rect key="frame" x="87.5" y="406" width="200" height="35"/>
+                                <rect key="frame" x="87.5" y="418" width="200" height="35"/>
                                 <color key="backgroundColor" red="0.024394605310000001" green="0.32284840939999998" blue="0.59277135130000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Convert">
@@ -351,6 +351,12 @@
                                 <rect key="frame" x="325" y="626" width="20" height="20"/>
                                 <color key="color" red="0.00076661910860000005" green="0.19658702610000001" blue="0.59811919930000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered by RatesExchange API" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fZ-l2-vrL">
+                                <rect key="frame" x="92" y="260" width="191" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -368,12 +374,15 @@
                             <constraint firstItem="9Dg-6W-keb" firstAttribute="width" secondItem="wq1-qQ-D5I" secondAttribute="width" id="OiS-gH-wYf"/>
                             <constraint firstItem="hQC-Uk-HQ8" firstAttribute="height" secondItem="wq1-qQ-D5I" secondAttribute="height" id="SB9-XE-hrc"/>
                             <constraint firstItem="kUs-M0-cft" firstAttribute="height" secondItem="wq1-qQ-D5I" secondAttribute="height" id="Xni-eX-OsG"/>
-                            <constraint firstItem="wq1-qQ-D5I" firstAttribute="top" secondItem="eUx-Ar-cEn" secondAttribute="bottom" constant="38" id="d3f-Pk-mNE"/>
+                            <constraint firstItem="wq1-qQ-D5I" firstAttribute="top" secondItem="eUx-Ar-cEn" secondAttribute="bottom" constant="50" id="d3f-Pk-mNE"/>
                             <constraint firstItem="u1z-ON-MDe" firstAttribute="centerY" secondItem="kca-Yh-BsU" secondAttribute="centerY" id="dNZ-fE-gLY"/>
                             <constraint firstItem="hQC-Uk-HQ8" firstAttribute="top" secondItem="wq1-qQ-D5I" secondAttribute="bottom" constant="20" id="dZd-oH-ytY"/>
                             <constraint firstItem="Io6-t3-8xz" firstAttribute="bottom" secondItem="kca-Yh-BsU" secondAttribute="bottom" constant="20" id="dea-FK-UVK"/>
+                            <constraint firstItem="9fZ-l2-vrL" firstAttribute="top" secondItem="eUx-Ar-cEn" secondAttribute="bottom" constant="2" id="dy3-yP-Rz6"/>
+                            <constraint firstItem="9fZ-l2-vrL" firstAttribute="centerX" secondItem="eUx-Ar-cEn" secondAttribute="centerX" id="fHG-C5-x8t"/>
                             <constraint firstItem="9Dg-6W-keb" firstAttribute="top" secondItem="kUs-M0-cft" secondAttribute="bottom" constant="20" id="fV6-Vy-uWt"/>
                             <constraint firstItem="Io6-t3-8xz" firstAttribute="trailing" secondItem="eUx-Ar-cEn" secondAttribute="trailing" constant="60" id="gb4-tw-agg"/>
+                            <constraint firstItem="vP7-K0-3yK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Io6-t3-8xz" secondAttribute="leading" symbolic="YES" id="k2K-29-nzl"/>
                             <constraint firstItem="hQC-Uk-HQ8" firstAttribute="width" secondItem="wq1-qQ-D5I" secondAttribute="width" id="lz2-m9-7xj"/>
                             <constraint firstItem="9Dg-6W-keb" firstAttribute="height" secondItem="wq1-qQ-D5I" secondAttribute="height" id="mfO-Qd-Gmm"/>
                             <constraint firstItem="wq1-qQ-D5I" firstAttribute="centerX" secondItem="eUx-Ar-cEn" secondAttribute="centerX" id="uUm-7N-gla"/>
@@ -388,7 +397,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vld-WH-lxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="183" y="817"/>
+            <point key="canvasLocation" x="181.59999999999999" y="816.34182908545733"/>
         </scene>
         <!--History MainVC-->
         <scene sceneID="uLk-Tz-WFP">
@@ -979,6 +988,6 @@
         <image name="usd" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ca7-X3-c2l"/>
+        <segue reference="TF8-Dj-FIP"/>
     </inferredMetricsTieBreakers>
 </document>
